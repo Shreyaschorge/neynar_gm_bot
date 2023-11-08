@@ -1,0 +1,19 @@
+{
+  "name": "neynar_gm_bot",
+  "version": "0.0.0",
+  "description": "A bot that will cast a good morning message with some AI generated positive quotes every morning",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run build && pm2 start ecosystem.config.js"
+  },
+  "author": "Neynar",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

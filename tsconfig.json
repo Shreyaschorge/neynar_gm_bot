@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es2018", // Or higher, depending on your Node.js version
+    "module": "commonjs",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "exclude": ["node_modules"]
+}
