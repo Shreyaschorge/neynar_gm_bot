@@ -1,6 +1,12 @@
-console.log("Hello World!");
-console.log("This is GM Bot!!");
+import { ChatGPTAPI } from "chatgpt";
 
-for (let i = 0; i < 10; i++) {
-  console.log(i + i + i + i + i + i);
+async function example() {
+  const api = new ChatGPTAPI({
+    apiKey: process.env.OPENAI_API_KEY!,
+  });
+
+  const res = await api.sendMessage("Hello World!");
+  console.log(res.text);
 }
+
+example()
