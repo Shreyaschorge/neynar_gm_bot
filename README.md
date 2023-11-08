@@ -3,4 +3,3 @@
 Install
 
 npm install -g pm2
-pm2 install typescript

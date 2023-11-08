@@ -7,7 +7,7 @@ module.exports = {
       instances: 1,
       autorestart: true,
       watch: true,
-      ignore_watch: ["node_modules", "src", ".git", "dist/*.map"],
+      ignore_watch: ["node_modules", ".git", "dist/*.map"],
       max_memory_restart: "1G",
       env: {
         NODE_ENV: "development",
@@ -15,7 +15,7 @@ module.exports = {
       watch_options: {
         followSymlinks: false,
         usePolling: true,
-        interval: 10000, // Check for changes every 10 seconds to avoid rapid restarts
+        interval: 5000, // Check for changes every 10 seconds to avoid rapid restarts
         ignoreInitial: true,
       },
     },
