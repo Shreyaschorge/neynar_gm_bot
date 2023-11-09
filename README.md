@@ -8,7 +8,7 @@ Powered By [Neynar API's](https://docs.neynar.com/). Built on top of [@neynar/no
 
 #### Pre-requisite
 
-(NodeJS)[https://nodejs.org/en/] must be installed.
+[NodeJS](https://nodejs.org/en/) must be installed.
 
 #### Setup
 
