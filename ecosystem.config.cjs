@@ -4,6 +4,7 @@ module.exports = {
       name: "neynar-gm-bot",
       script: "./dist/app.js",
       instances: 1,
+      exec_mode: "fork",
       autorestart: true,
       watch: true,
       ignore_watch: ["node_modules", ".git", "dist/*.map"],

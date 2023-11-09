@@ -1,54 +1,32 @@
 import cron from "node-cron";
-import dotenv from "dotenv";
-import { NeynarAPIClient } from "@neynar/nodejs-sdk";
 import { AxiosError } from "axios";
-dotenv.config();
+import { MESSAGE } from "./utils";
+import neynarClient from "./neynarClient";
+import {
+  PUBLISH_CAST_TIME,
+  SIGNER_UUID,
+  TIME_ZONE,
+  NEYNAR_API_KEY,
+} from "./config";
 
-const neynarClient = new NeynarAPIClient(process.env.NEYNAR_API_KEY!);
+if (!SIGNER_UUID) {
+  throw new Error("SIGNER_UUID is not defined");
+}
 
-const emoji = [
-  "☀️",
-  "🌅",
-  "🥞",
-  "🌅​🐦​🪱",
-  "🌅​🐦🐛",
-  "☀️⬆️👀",
-  "👦🚿☀️",
-  "👩🚿☀️",
-  "🏃👟☀️",
-  "🏃🛌🌅",
-  "⛱️🚶🌅",
-  "🌅​🙆‍♀️​📷​",
-  "🌞🤳",
-  "☀️​​☕​➡️️​😋",
-  "🍵​☀️",
-  "​☕​☀️",
-  "🍩​☕​🌅",
-  "⚡​☕​​🌅 ",
-  "🥞​🍳​☀️",
-  "☕️​🥞🥐​​🌅​",
-  "🍫​🥞​🥛🧒☀️",
-];
+if (!NEYNAR_API_KEY) {
+  throw new Error("NEYNAR_API_KEY is not defined");
+}
 
-const getEmoji = () => {
-  const randomIndex = Math.floor(Math.random() * emoji.length);
-  return emoji[randomIndex];
-};
-
-const MESSAGE = `Good morning... ${getEmoji()}`;
-
-const publishCast = () => {
+const publishCast = async () => {
   try {
-    neynarClient.publishCast(process.env.SIGNER_UUID!, MESSAGE);
+    await neynarClient.publishCast(SIGNER_UUID, MESSAGE);
     console.log("Cast published successfully");
   } catch (error) {
     console.log((error as AxiosError).response?.data || (error as Error));
   }
 };
 
-const publishCastTime = process.env.PUBLISH_CAST_TIME! || '09:00';
-
-const [hour, minute] = publishCastTime.split(":");
+const [hour, minute] = PUBLISH_CAST_TIME.split(":");
 
 cron.schedule(
   `${minute} ${hour} * * *`,
@@ -57,7 +35,10 @@ cron.schedule(
   },
   {
     scheduled: true,
-    timezone: process.env.TIME_ZONE,
+    timezone: TIME_ZONE,
   }
 );
 
+console.log(
+  `Cron job scheduled at ${PUBLISH_CAST_TIME} ${TIME_ZONE}, please don't restart your system before the scheduled time.`
+);
