@@ -35,11 +35,17 @@ npm run dev
 #### Verify process is running
 
 ```
-pm2  status
+pm2 status
 ```
 
 #### Logs
 
 ```
 pm2 logs
+```
+
+#### Terminate process
+
+```
+pm2 kill
 ```
