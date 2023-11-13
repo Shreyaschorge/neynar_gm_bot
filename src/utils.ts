@@ -27,4 +27,4 @@ const getEmoji = () => {
   return emoji[randomIndex];
 };
 
-export const MESSAGE = `Good morning... ${getEmoji()}`;
+export const MESSAGE = `GM ${getEmoji()}`;
