@@ -140,7 +140,10 @@ export const getApprovedSigner = async () => {
     console.log("✅ Generated signer", "\n");
 
     console.log(
-      "In order to get an approved signer you need to do an on-chain transaction on OP mainnet. \nGo to Farcaster KeyGateway optimism explorer :=> https://optimistic.etherscan.io/address/0x00000000fc56947c7e7183f8ca4b62398caadf0b#writeContract \n"
+      "In order to get an approved signer you need to do an on-chain transaction on OP mainnet. \nGo to Farcaster KeyGateway optimism explorer\nhttps://optimistic.etherscan.io/address/0x00000000fc56947c7e7183f8ca4b62398caadf0b#writeContract \n"
+    );
+    console.log(
+      "Connect to Web3.\n\nNavigate to `addFor` function and add following values inside the respective placeholders.\n"
     );
 
     console.log(
