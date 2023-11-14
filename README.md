@@ -24,6 +24,14 @@ yarn install
 npm install
 ```
 
+#### Setup Environment
+
+Add SIGNER_UUID (Required), NEYNAR_API_KEY (Required), PUBLISH_CAST_TIME (Optional), TIME_ZONE (Optional) inside env
+
+```
+cp .env.example .env
+```
+
 #### Run Project
 
 ```
