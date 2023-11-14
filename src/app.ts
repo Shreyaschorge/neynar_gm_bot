@@ -7,8 +7,13 @@ import {
   SIGNER_UUID,
   TIME_ZONE,
   NEYNAR_API_KEY,
+  FARCASTER_DEVELOPER_MNEMONIC,
+  USERNAME_OR_FID,
 } from "./config";
 
+if (!FARCASTER_DEVELOPER_MNEMONIC) {
+  throw new Error("FARCASTER_DEVELOPER_MNEMONIC is not defined");
+}
 if (!SIGNER_UUID) {
   throw new Error("SIGNER_UUID is not defined");
 }
@@ -26,7 +31,9 @@ const publishCast = async (msg: string) => {
   }
 };
 
-publishCast("Hello from Shreyas's GM Bot! I'm here to brighten your day with daily cheer. Look forward to a warm 'GM' everyday!");
+publishCast(
+  `Hello from ${USERNAME_OR_FID}'s GM Bot! I'm here to brighten your day with daily cheer. Look forward to a warm 'GM' everyday!`
+);
 
 const [hour, minute] = PUBLISH_CAST_TIME.split(":");
 
